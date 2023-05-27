@@ -1,6 +1,5 @@
 from django.contrib import admin
 from .models import Destination, Food
-from django_summernote.admin import SummernoteModelAdmin
 
 admin.site.register(Destination)
 class DestinationAdmin(admin.ModelAdmin):
