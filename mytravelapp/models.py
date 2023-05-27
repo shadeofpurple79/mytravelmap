@@ -8,6 +8,9 @@ class Destination(models.Model):
     country_name = models.CharField(max_length=100)
     month_year_visited = models.DateField(null=True, blank=True)
     month_year_to_visit = models.DateField(null=True, blank=True)
+    latitude = models.DecimalField(max_digits=9, decimal_places=6, null=True)
+    longitude = models.DecimalField(max_digits=9, decimal_places=6, null=True)
+    
 
     EXPERIENCE_OPTIONS = (
         ('visited', 'I have visited'),
