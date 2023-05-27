@@ -7,7 +7,7 @@ class Destination(models.Model):
     city_name = models.CharField(max_length=100)
     country_name = models.CharField(max_length=100)
     month_year_visited = models.DateField(null=True, blank=True)
-    month_year_to_visit = models.DataField(null=True, blank=True)
+    month_year_to_visit = models.DateField(null=True, blank=True)
 
     EXPERIENCE_OPTIONS = (
         ('visited', 'I have visited'),
@@ -22,5 +22,5 @@ class Food(models.Model):
     name = models.CharField(max_length=100)
     image = CloudinaryField('image')
 
-    def_str_(self):
+    def __str__(self):
         return self.name
