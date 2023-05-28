@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}  
+{% block content %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,23 +9,23 @@
     <title>My Travel Map</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" /> -->
-    <!-- <style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
       #map {
         height: 400px;
       }
-    </style> -->
-    {% load static %}
-    <a href="{% url 'account_login' %}">Login</a>
-    <a href="{% url 'account_logout' %}">Logout</a>
+    </style>
+  
+    <!-- <a href="{% url 'account_login' %}">Login</a>
+    <a href="{% url 'account_logout' %}">Logout</a> -->
 </head>
 <body>
-    <h1>Welcome to My Travel Map</h1>
+    <!-- <h1>Welcome to My Travel Map</h1>
     <p>Mark the places you've been to and the foods you've eaten.</p>
-    <p>Create your bucket list of places to go and foods to eat.</p>
-    <!-- <div id="map"></div>
+    <p>Create your bucket list of places to go and foods to eat.</p> -->
+    <div id="map"></div>
 
     <script>
       var map = L.map('map').setView([0, 0], 2);
@@ -37,7 +38,8 @@
       {% csrf_token %}
       {{ form.as_p }}
       <button type="submit">Add A Destination</button>
-    </form> -->
+    </form>
 
 </body>
 </html>
+{%endblock%}
