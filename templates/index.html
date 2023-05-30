@@ -36,8 +36,9 @@
 {% block js %}
 <script>
   let map = L.map('map', {
-      maxBounds: [[-75, -190], [90, 190]],
-      maxBoundsViscosity: 0.5,
+    // set the maximum bounding box of the map to avoid unlimited scrolling
+    maxBounds: [[-75, -190], [90, 190]],
+    maxBoundsViscosity: 0.5,
   }).setView([0, 0], 2);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
