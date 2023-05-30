@@ -1,1 +1,1 @@
-web: gunicorn mytravelmap.wsgi
+web: gunicorn main.wsgi
