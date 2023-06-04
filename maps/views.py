@@ -26,7 +26,7 @@ def index(request):
     # form = DestinationForm()
     # return render(request, 'index.html', {'destinations': destinations, 'form': form})
 
-# @login_required
+@login_required
 def add_destination(request):
     if request.method == 'POST':
         # user = request.user
@@ -50,6 +50,11 @@ def destination_list(request):
     context = {'destinations': destinations}
     # return render(request, 'destination_list.html', context)
     return render(request, 'destination_list.html', {'destinations': destinations})
+
+
+# def account_login(request):
     
+#     return render(request, 'login.html')
+   
 def world_map(request):
     return render(request, 'world_map.html')
