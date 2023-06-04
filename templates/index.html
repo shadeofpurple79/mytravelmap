@@ -4,10 +4,16 @@
 
 <div id="map"></div>
 
-<form method="post" action="{% url 'index' %}">
+<!-- <form method="post" action="{% url 'index' %}"> -->
+<form method="post" action="{% url 'add_destination' %}" >
   {% csrf_token %}
   {{ form.as_p }}
-  <button id="submit-btn" type="submit" disabled>Add A Destination</button>
+   <!-- Longitude and Latitude fields -->
+   <!-- <input type="hidden" id="id_longitude" name="longitude">
+   <input type="hidden" id="id_latitude" name="latitude"> -->
+  <!-- <button id="submit-btn" type="submit" disabled>Add A Destination</button> -->
+  <button id="addDestinationBtn">Add Destination</button>
+
 </form>
 
 <!-- <table>
@@ -83,6 +89,29 @@
     // enable the submit button now that there are valid lat/lng values
     enableDisableSubmitBtn();
   }
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      // Get the add destination button element
+      var addDestinationBtn = document.getElementById("addDestinationBtn");
+      
+      // Add click event listener to the button
+      addDestinationBtn.addEventListener("click", function() {
+        // Check if user is logged in
+        var isLoggedIn = false; // Replace with your login check logic
+
+        if (!isLoggedIn) {
+          // Display error message
+          alert("You need to be logged in to add a destination.");
+          // Redirect to the login page
+          window.location.href = "login.html";
+        } else {
+          // Continue with adding the destination
+          // ...
+        }
+      });
+    });
 </script>
 
 {% endblock %}
