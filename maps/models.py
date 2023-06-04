@@ -9,8 +9,8 @@ class Destination(models.Model):
     country_name = CountryField(blank_label='Country', null=False, blank=False)
     month_year_visited = models.DateField(null=True, blank=True)
     month_year_to_visit = models.DateField(null=True, blank=True)
-    latitude = models.DecimalField(max_digits=9, decimal_places=6, null=True)
-    longitude = models.DecimalField(max_digits=9, decimal_places=6, null=True)
+    latitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
+    longitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=Trueclear)
     
 
     EXPERIENCE_OPTIONS = (
@@ -28,3 +28,5 @@ class Food(models.Model):
 
     def __str__(self):
         return self.name
+
+    

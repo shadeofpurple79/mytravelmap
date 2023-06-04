@@ -36,7 +36,7 @@ DEBUG = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-ALLOWED_HOSTS = ['mytravelmap.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['mytravelmap.herokuapp.com', 'localhost', '8000-shadeofpurp-mytravelmap-8dyfqg06scf.ws-eu98.gitpod.io']
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
