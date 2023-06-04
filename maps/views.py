@@ -36,6 +36,10 @@ def add_destination(request):
             destination.save()
     return redirect('destination_list')
 
-
+def destination_list(request):
+    destinations = Destination.objects.all()  # Retrieve all destinations from the database
+    context = {'destinations': destinations}
+    return render(request, 'destination_list.html', context)
+    
 def world_map(request):
     return render(request, 'world_map.html')

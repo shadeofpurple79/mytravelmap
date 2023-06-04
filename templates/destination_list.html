@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- iterate destinations variable passed from the view and display in an unordered list -->
+<h1>Destination List</h1>
+<ul>
+  {% for destination in destinations %}
+  <li>{{ destination.name }}</li>
+  {% endfor %}
+</ul>
+{% endblock %}
