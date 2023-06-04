@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if messages %}
+    <ul class="messages">
+    {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if request.user.is_authenticated %}
+        <h2>Add Destination</h2>
+        <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add</button>
+        </form>
+    {% else %}
+        <h2>Please Login</h2>
+        <p>You need to be logged in to add a destination.</p>
+        <p><a href="{% url 'login' %}">Login</a> or <a href="{% url 'signup' %}">Sign Up</a></p>
+    {% endif %}
+{% endblock %}

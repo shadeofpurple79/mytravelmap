@@ -3,6 +3,7 @@ from .models import Destination
 from .forms import DestinationForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 
 def index(request):
@@ -34,10 +35,14 @@ def add_destination(request):
             destination = form.save(commit=False)
             destination.user = request.user # Assign the actual user
             destination.save()
+            messages.success(request, 'New destination added')
             return redirect('destination_list')
     else:
         form = DestinationForm()
-    return render(request, 'add_destination.html', {'form': form})
+
+    # return render(request, 'add_destination.html', {'form': form})
+    context = {'form': form}
+    return render(request, 'add_destination.html', context)
     
 
 def destination_list(request):
