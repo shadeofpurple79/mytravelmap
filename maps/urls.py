@@ -9,7 +9,7 @@ from django.contrib.auth.views import LoginView
 urlpatterns = [
     # path('admin/', admin.site.urls),
     path('', views.index, name='index'),
-    path('login/', LoginView.as_view(template_name='login.html'), name='login'),
+    path('login/', LoginView.as_view(template_name='accounts/login.html'), name='login'),
     path('add_destination/', add_destination, name='add_destination'),
     # path('destinations/', destination_list, name='destination_list'),
     # path('destination_list/', destination_list, name='destination_list'),

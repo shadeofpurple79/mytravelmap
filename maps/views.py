@@ -44,6 +44,10 @@ def add_destination(request):
         if form.is_valid():
             destination = form.save(commit=False)
             destination.user = request.user # Assign the logged in user
+            destination.latitude = form.cleaned_data['latitude']
+            destination.longitude = form.cleaned_data['longitude']
+            print(f"Latitude: {latitude}")
+            print(f"Longitude: {longitude}")
             destination.save()
             messages.success(request, 'New destination added')
             form = DestinationForm()
