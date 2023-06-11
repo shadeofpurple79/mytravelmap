@@ -36,7 +36,7 @@ DEBUG = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-ALLOWED_HOSTS = ['mytravelmap.herokuapp.com', 'localhost', '8000-shadeofpurp-mytravelmap-8dyfqg06scf.ws-eu98.gitpod.io']
+ALLOWED_HOSTS = ['mytravelmap.herokuapp.com', 'localhost', '8000-shadeofpurp-mytravelmap-8dyfqg06scf.ws-eu99.gitpod.io']
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
@@ -102,10 +102,10 @@ TEMPLATES = [
     },
 ]
 
-# AUTHENTICATION_BACKENDS = [
-#     'django.contrib.auth.backends.ModelBackend',
-#     'allauth.account.auth_backends.AuthenticationBackend',
-# ]
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
 
 
 WSGI_APPLICATION = 'main.wsgi.application'

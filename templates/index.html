@@ -2,38 +2,37 @@
 {% load static %}
 {% block content %}
 
+
 <div id="map"></div>
 
 <!-- <form method="post" action="{% url 'index' %}"> -->
-<form method="post" action="{% url 'add_destination' %}" >
+<form method="post" action="{% url 'index' %}" >
   {% csrf_token %}
   {{ form.as_p }}
    <!-- Longitude and Latitude fields -->
-   <!-- <input type="hidden" id="id_longitude" name="longitude">
-   <input type="hidden" id="id_latitude" name="latitude"> -->
+   <input type="hidden" id="id_longitude" name="longitude">
+   <input type="hidden" id="id_latitude" name="latitude">
   <!-- <button id="submit-btn" type="submit" disabled>Add A Destination</button> -->
   <button id="addDestinationBtn">Add Destination</button>
-
 </form>
 
-<!-- <table>
-      <thead>
-        <tr>
-          <th>City</th>
-          <th>Country</th>
-          <th>Visited Date</th>
-        </tr>
-      </thead>
-      <tbody>
+<h2>My Visited Destinations</h2>
+    <ul>
         {% for destination in destinations %}
-        <tr>
-          <td>{{ destination.city }}</td>
-          <td>{{ destination.country }}</td>
-          <td>{{ destination.visited_date }}</td>
-        </tr>
+            <li>{{ destination.city_name }}, {{ destination.country_name }}, {{ destination.month_year_visited }}</li>
+        {% empty %}
+          <li>You haven't added any visited destinations yet.</li>
         {% endfor %}
-      </tbody>
-    </table> -->
+    </ul>
+
+<h2>My Wishlist Destinations</h2>
+  <ul>
+      {% for destination in destinations %}
+          <li>{{ destination.city_name }}, {{ destination.country_name }}</li>
+      {% empty %}
+        <li>You haven't added any wishlist destinations yet.</li>
+      {% endfor %}
+  </ul>
 
 {% endblock %}
 
@@ -101,7 +100,7 @@
       // Add click event listener to the button
       addDestinationBtn.addEventListener("click", function() {
         // Check if user is logged in
-        var isLoggedIn = false; // Replace with your login check logic
+        var isLoggedIn = false; 
 
         if (!isLoggedIn) {
           // Display error message
@@ -109,9 +108,8 @@
           // Redirect to the login page
           window.location.href = "login.html";
         } else {
-          // Continue with adding the destination
-          // ...
-        }
+          alert("You have successfuly added a new destination.");
+          }
       });
     });
 </script>
