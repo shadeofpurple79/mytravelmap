@@ -36,7 +36,7 @@ def add_destination(request):
             destination.user = request.user # Assign the actual user
             destination.save()
             messages.success(request, 'New destination added')
-            return redirect('destination_list')
+            return redirect('index')
     else:
         form = DestinationForm()
 
@@ -52,9 +52,9 @@ def destination_list(request):
     return render(request, 'destination_list.html', {'destinations': destinations})
 
 
-# def account_login(request):
+def account_login(request):
     
-#     return render(request, 'login.html')
+    return render(request, 'login.html')
    
-def world_map(request):
-    return render(request, 'world_map.html')
+# def world_map(request):
+#     return render(request, 'world_map.html')
